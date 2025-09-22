@@ -1527,6 +1527,17 @@ class IndexedLinkedList:
         # Register the node in the storage and return the index
         return self._storage.register(node=node)
 
+    def empty(self) -> bool:
+        """
+        Check, if the list is empty.
+
+        Returns:
+            bool: True if the list is empty, False otherwise.
+        """
+
+        # Return True, if the storage is empty
+        return self._storage.empty()
+
     def get_first(self) -> Optional[Any]:
         """
         Get the first value in the list.
@@ -1590,6 +1601,17 @@ class IndexedLinkedList:
 
         # Return the last value in the list
         return node.value
+
+    def get_size(self) -> int:
+        """
+        Get the size of the list.
+
+        Returns:
+            int: The size of the list.
+        """
+
+        # Return the size of the list
+        return self._storage.get_size()
 
     def index_of(
         self,
