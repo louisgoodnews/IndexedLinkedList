@@ -20,11 +20,31 @@ def invert_dict(dictionary: dict[Any, Any]) -> dict[Any, Any]:
         dict[Any, Any]: The inverted dictionary.
     """
 
-    # Return the inverted dictionary
-    return {
-        value: key
-        for (
-            key,
-            value,
-        ) in dictionary.items()
-    }
+    # Initialize the result dictionary
+    result: dict[Any, Any] = {}
+
+    try:
+        # Attempt to invert the dictionary
+        result.update(
+            {
+                value: key
+                for (
+                    key,
+                    value,
+                ) in dictionary.items()
+            }
+        )
+    except Exception:
+        # Attempt to invert the dictionary with string values
+        result.update(
+            {
+                str(value): key
+                for (
+                    key,
+                    value,
+                ) in dictionary.items()
+            }
+        )
+    finally:
+        # Return the result dictionary
+        return result
